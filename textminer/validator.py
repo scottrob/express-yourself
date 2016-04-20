@@ -10,6 +10,14 @@ def hex(string):
     return re.match(r'^[A-Fa-f0-9]+$',string)
 
 def word(string):
-    return re.search(r'^[\-A-Za-z18]+$',string)
+    return re.match(r'^[0-9]*[\-A-Za-z]+$',string)
 
-def 
+def words(string):
+    matches = re.findall(r'^[0-9]*?[\-A-Za-z]+$',string)
+    return len(matches)
+
+def phone_number(string):
+    return re.match(r'\(?\d{3}.?.?\d{3}.?\d{4}' ,string)
+
+def money(string):
+    return re.match(r'^\$(\d*)(,\d{3}?)*(\.\d{2})?')
